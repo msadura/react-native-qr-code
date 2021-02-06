@@ -1,114 +1,112 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
+  SafeAreaView,
   View,
+  TextInput,
   Text,
-  StatusBar,
+  TouchableOpacity
 } from 'react-native';
+import QRCode from 'react-native-qr-code';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+export default function App() {
+  const [inputValue, setInputValue] = useState('');
+  const [qrValue, setQrValue] = useState('');
+  const [imgUri, setImgUri] = useState('');
+  const qrRef = useRef();
 
-const App: () => React$Node = () => {
+  const setQr = () => {
+    setQrValue(inputValue);
+    setImgUri('');
+  };
+
+  const saveQr = async () => {
+    const uri = await qrRef.current.saveImg();
+    setImgUri(uri);
+    console.log('🔥 generated image uri: ', uri);
+  };
+
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+    <SafeAreaView style={styles.fill}>
+      <View style={styles.container}>
+        <Text style={styles.title}>react-native-qr-code-example</Text>
+        <View style={styles.info}>
+          <TextInput
+            style={styles.input}
+            value={inputValue}
+            onChangeText={setInputValue}
+            placeholder="Enter qr code value"
+          />
+          <TouchableOpacity style={styles.button} onPress={setQr}>
+            <Text style={styles.buttonText}>GENERATE CODE</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.button, styles.greenBg]} onPress={saveQr}>
+            <Text style={styles.buttonText}>SAVE CODE</Text>
+          </TouchableOpacity>
+        </View>
+
+        {!!imgUri && (
+          <View style={styles.uriInfo}>
+            <Text>Generated img uri: {'\n'}{imgUri}</Text>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+        )}
+
+        <View style={styles.qrContainer}>
+          <QRCode size={200} value={qrValue} outerSpacing={30} ref={qrRef} />
+        </View>
+      </View>
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 20
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  fill: {
+    flex: 1
   },
-  body: {
-    backgroundColor: Colors.white,
+  container: {
+    flex: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  qrContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+  row: {
+    paddingHorizontal: 20,
+    marginBottom: 50,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+  input: {
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: '#0085FF',
+    backgroundColor: 'white',
+    paddingHorizontal: 5,
   },
-  highlight: {
-    fontWeight: '700',
+  button: {
+    marginTop: 12,
+    backgroundColor: '#0085FF',
+    borderRadius: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  greenBg: {
+    backgroundColor: '#32ba81'
   },
+  buttonText: {
+    fontSize: 20,
+    color: '#ffffff',
+  },
+  uriInfo: {
+    marginTop: 10
+  }
 });
-
-export default App;

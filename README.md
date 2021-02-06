@@ -44,19 +44,20 @@ export default function App() {
 }
 ```
 
-# CyberButton props
+# QRCode props
 | Props                | Type          | Description  | Default      |
 | --------------------- |:-------------:| ------------ | ------------ |
 | `value`  | `string` | Value of code to be generated.| `''` |
 | `size` | `Integer`     | Used as height andf width of generated QR code. |`200` |
 | `color`  | `string` | Qr code main color.| `black` |
 | `backgroundColor`  | `string` | QR code background color (empty blocks).| `white` |
-| `errorCorrection`  | `low | medium | quartile | high` | Error correction level. See [node-qrcode docs](https://github.com/soldair/node-qrcode#error-correction-level) for more details.| `medium` |
+| `errorCorrection`  | `low, medium, quartile, high` | Error correction level. See [node-qrcode docs](https://github.com/soldair/node-qrcode#error-correction-level) for more details.| `medium` |
 | `outerSpacing`  | `number` | Margin around generated QR code. Will also be used as spacing when saving as image | `0` |
 
-# CyberButton instance methods
-`saveImg` - Async method to generate image out of current QR code and return temp uri.
+# QRCode instance methods
+`saveImg` - Async method to generate image out of current QR code and return temp image uri.
 
 # React Native Epicode Academy
 This package is a part of [React Native Epicode Academy](https://www.youtube.com/channel/UCjeodJlopQe4b91Y-uS18Ow) YouTube series.
 
+If you appreciate my work you can buy me a coffe [here](https://www.buymeacoffee.com/epicode) :)

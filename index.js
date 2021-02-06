@@ -4,7 +4,7 @@ import React, {
   useRef,
   useCallback,
   forwardRef,
-  useImperativeHandle,
+  useImperativeHandle
 } from 'react';
 import {StyleSheet, View} from 'react-native';
 import QRCodeGenerator from 'qrcode';
