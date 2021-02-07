@@ -1,4 +1,4 @@
-# react-native-qr-code
+# react-native-qrcode-component
 React Native component for generating and displaying qr codes. Uses js library [node-qrcode](https://github.com/soldair/node-qrcode) for generating qr code data. Uses pure react-native solution to display generated code, does not need additional dependencies to render code on screen.
 
 ![](Example/btn_anim.gif)
@@ -11,18 +11,18 @@ NOTE: This is needed only if you want to save code as image, code can be generat
 # Usage
 Install module:
 ```
-npm install --save react-native-qr-code
+npm install --save react-native-qrcode-component
 ```
 
 or
 
 ```
-yarn add react-native-qr-code
+yarn add react-native-qrcode-component
 ```
 
 Import component and use it in your app:
 ```js
-import QRCode from 'react-native-qr-code';
+import QRCode from 'react-native-qrcode-component';
 
 export default function App() {
   const qrRef = useRef();
@@ -35,7 +35,7 @@ export default function App() {
   return (
       <View>
         <QRCode
-          value="https://github.com/msadura/react-native-qr-code"
+          value="https://github.com/msadura/react-native-qrcode-component"
           size={200}
           ref={qrRef}
         />

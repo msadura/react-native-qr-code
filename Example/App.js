@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import QRCode from 'react-native-qr-code';
+import QRCode from 'react-native-qrcode-component';
 
 export default function App() {
   const [inputValue, setInputValue] = useState('');
@@ -29,7 +29,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.fill}>
       <View style={styles.container}>
-        <Text style={styles.title}>react-native-qr-code-example</Text>
+        <Text style={styles.title}>react-native-qrcode-component example</Text>
         <View style={styles.info}>
           <TextInput
             style={styles.input}

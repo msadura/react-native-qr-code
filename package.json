@@ -1,5 +1,5 @@
 {
-  "name": "react-native-qr-code",
+  "name": "react-native-qrcode-component",
   "version": "1.0.0",
   "description": "React Native component for generating and displaying qr codes",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/msadura/react-native-qr-code.git"
+    "url": "git+https://github.com/msadura/react-native-qrcode-component.git"
   },
   "keywords": [
     "react",
@@ -22,9 +22,9 @@
   "author": "Epicode Marek Sadura",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/msadura/react-native-qr-code/issues"
+    "url": "https://github.com/msadura/react-native-qrcode-component/issues"
   },
-  "homepage": "https://github.com/msadura/react-native-qr-code#readme",
+  "homepage": "https://github.com/msadura/react-native-qrcode-component#readme",
   "dependencies": {
     "qrcode": "^1.4.4"
   }

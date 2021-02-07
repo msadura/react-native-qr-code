@@ -5395,9 +5395,9 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-native-qr-code@git+ssh://git@github.com:msadura/react-native-qr-code.git":
+"react-native-qrcode-component@git+ssh://git@github.com:msadura/react-native-qrcode-component.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:msadura/react-native-qr-code.git#4dd358a3004b6e80c525592b093d7c007f7e98b9"
+  resolved "git+ssh://git@github.com:msadura/react-native-qrcode-component.git#4dd358a3004b6e80c525592b093d7c007f7e98b9"
   dependencies:
     qrcode "^1.4.4"
 
