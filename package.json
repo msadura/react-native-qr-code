@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native component for generating and displaying qr codes",
   "main": "index.js",
   "scripts": {
